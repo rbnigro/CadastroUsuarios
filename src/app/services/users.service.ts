@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IUser } from '../interfaces/user/user.interface';
+import { UsersListResponse } from '../types/users-list-response';
 
 @Injectable({ providedIn: 'root' }) // instância única na aplicação
 export class UsersService {
-  private readonly usersList: any = [
+  private readonly usersList: UsersListResponse = [
     {
       name: 'Usuário 1',
       username: 'usuario1',
@@ -50,13 +52,13 @@ export class UsersService {
     },
   ];
 
-  getUsers(): Observable<any> {
+  getUsers(): Observable<UsersListResponse> {
     return new Observable((observer) => {
       setTimeout(() => {
         observer.next(this.usersList);
         observer.complete;
       }, 3000);
-    });
+    }); // chamada HTTP
     // return of(this.usersList);
   }
 }

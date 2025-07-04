@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from './services/users.service';
 import { GendersService } from './services/genders.service';
 import { StatesService } from './services/states.service';
+import { UsersListResponse } from './types/users-list-response';
+import { GendersListResponse } from './types/genders-list-response';
+import { StatesListResponse } from './types/states-list-response';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +14,9 @@ import { StatesService } from './services/states.service';
 })
 export class AppComponent implements OnInit {
 
-  usersList: any = [];
-  gendersList: any = [];
-  stateList: any = [];
+  usersList: UsersListResponse = [];
+  gendersList: GendersListResponse = [];
+  stateList: StatesListResponse = [];
 
   constructor(
     private readonly _userService: UsersService,
